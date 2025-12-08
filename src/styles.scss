@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../public/static_fonts/RobotoSlab-Regular.ttf");
+}
+
+* {
+  outline: none !important;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  --primary-color: #ff6b35;
+  --primary-color-dark: #ff8c42;
+  --white: #fff;
+  --black: #000;
+  --main-background: white;
+  --text-color: #333;
+  --text-gray: #666;
+  --grid-background: #f8f9fa;
+  --awards-background: #f8f9fa;
+  --glass-background: rgba(255, 255, 255, 0.95);
+  --modal-background: rgba(0, 0, 0, 0.5);
+  --sidebar-hover-option: #fff5f0;
+  --burger-color: #ff6b35;
+  --burger-color-light: #ff8c42;
+  --button-text: #fff;
+  --hollow-circle: #ff6b35;
+  --faq-response: #666;
+  --title-bg-shade: rgba(255, 255, 255, 0.9);
+  --tech-card-bg: white;
+  --tech-card-border: rgba(0, 0, 0, 0.1);
+  --tech-item-bg: rgba(255, 107, 53, 0.05);
+  --tech-item-border: rgba(255, 107, 53, 0.2);
+  --tech-item-hover-bg: rgba(255, 107, 53, 0.1);
+  --tech-icon-bg: rgba(255, 107, 53, 0.1);
+  --tech-icon-hover-bg: rgba(255, 107, 53, 0.2);
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: var(--main-background);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  line-height: 1.6;
+}

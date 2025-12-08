@@ -1,0 +1,64 @@
+.Toastify__toast-theme--light {
+  background: #ffffff14 !important;
+  color: darkgrey !important;
+}
+.Toastify__toast {
+  height: 100% !important;
+  border-radius: none !important;
+  max-height: none !important;
+}
+
+.Toastify__toast-body {
+  padding: 1px !important;
+}
+
+.loader {
+  border: 2px solid rgb(255, 255, 255);
+  border-left-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.loader {
+  border-left-color: transparent;
+}
+
+.loader {
+  border-left-color: transparent;
+  animation: spin89345 1s linear infinite;
+}
+
+@keyframes spin89345 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Performance optimizations */
+.app-main {
+  will-change: opacity;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize animations for mobile */
+@media screen and (max-width: 768px) {
+  .word,
+  .char {
+    will-change: auto;
+  }
+}
