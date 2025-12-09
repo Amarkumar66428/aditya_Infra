@@ -48,37 +48,25 @@ const HeroSlider = () => {
     }
   }, []);
 
-  useEffect(() => {
-    // Auto-slide functionality
-    const startAutoSlide = () => {
-      autoSlideIntervalRef.current = setInterval(() => {
-        nextSlide();
-      }, 5000); // Change slide every 5 seconds
-    };
+  // useEffect(() => {
+  //   const startAutoSlide = () => {
+  //     autoSlideIntervalRef.current = setInterval(() => {
+  //       nextSlide();
+  //     }, 5000);
+  //   };
 
-    const stopAutoSlide = () => {
-      if (autoSlideIntervalRef.current) {
-        clearInterval(autoSlideIntervalRef.current);
-      }
-    };
+  //   const stopAutoSlide = () => {
+  //     if (autoSlideIntervalRef.current) {
+  //       clearInterval(autoSlideIntervalRef.current);
+  //     }
+  //   };
 
-    startAutoSlide();
+  //   startAutoSlide();
 
-    // Pause on hover
-    const slider = sliderRef.current;
-    if (slider) {
-      slider.addEventListener('mouseenter', stopAutoSlide);
-      slider.addEventListener('mouseleave', startAutoSlide);
-    }
-
-    return () => {
-      stopAutoSlide();
-      if (slider) {
-        slider.removeEventListener('mouseenter', stopAutoSlide);
-        slider.removeEventListener('mouseleave', startAutoSlide);
-      }
-    };
-  }, [currentSlide]);
+  //   return () => {
+  //     stopAutoSlide();
+  //   };
+  // }, [currentSlide]);
 
   const goToSlide = (index) => {
     if (index === currentSlide) return;
@@ -86,14 +74,12 @@ const HeroSlider = () => {
     const prevSlide = slidesRef.current[currentSlide];
     const nextSlide = slidesRef.current[index];
 
-    // Animate out current slide
     gsap.to(prevSlide, {
       opacity: 0,
       scale: 0.95,
       duration: 0.8,
       ease: 'power2.in',
       onComplete: () => {
-        // Animate in next slide
         gsap.fromTo(
           nextSlide,
           { opacity: 0, scale: 1.05 },

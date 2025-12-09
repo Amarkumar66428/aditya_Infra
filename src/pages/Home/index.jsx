@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import Layout from '../../layout';
-import HeroSlider from '../../components/HeroSlider/HeroSlider';
-import NewsSection from '../../components/NewsSection/NewsSection';
-import VideoSection from '../../components/VideoSection/VideoSection';
+import HeroSlider from './HeroSlider/HeroSlider';
+import NewsSection from './NewsSection/NewsSection';
+import VideoSection from './VideoSection/VideoSection';
 import { initScrollAnimations, cleanupScrollTriggers } from '../../utils/gsapAnimations';
 import './Home.scss';
 
