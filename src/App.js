@@ -6,11 +6,9 @@ import "./styles.scss";
 function App() {
 
   return (
-    <React.Fragment>
-      <div className="app-main">
-        <Router />
-      </div>
-    </React.Fragment>
+    <div className="app-main">
+      <Router />
+    </div>
   );
 }
 
