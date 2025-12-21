@@ -117,7 +117,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.856);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
       border: none;
       padding: 1rem 0.5rem;
       cursor: pointer;
@@ -132,7 +134,7 @@
       font-weight: bold;
 
       &:hover {
-        background: #ff6b35;
+        background: rgba(255, 107, 53, 0.9);
         color: white;
       }
 
@@ -155,7 +157,7 @@
 
     .slider-dots {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
