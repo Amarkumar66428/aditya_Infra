@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { getLocalStorage, clearLocalStorage, errorToast } from '../helpers';
 
+const baseURL = process.env.REACT_APP_SERVER_URL
+
 const api = axios.create({
-    baseURL: 'https://api.openweathermap.org/data/2.5',
+    baseURL: `${baseURL}/api/v1`,
     timeout: 30000, // 30 seconds timeout
     headers: {
         'Content-Type': 'application/json',
@@ -12,6 +14,7 @@ const api = axios.create({
 // Request Interceptor
 api.interceptors.request.use(
     async (config) => {
+        console.log('baseURL: ', baseURL);
         // Add token to request if available
         const token = getLocalStorage('token');
         if (token) {
@@ -41,7 +44,7 @@ api.interceptors.response.use(
 
         // Return response data directly if you prefer
         // return response.data;
-        
+
         // Or return full response
         return response;
     },
@@ -56,7 +59,7 @@ api.interceptors.response.use(
         if (error.response) {
             // Server responded with error status
             const { status, data } = error.response;
-            
+
             switch (status) {
                 case 401:
                     // Unauthorized - token expired or invalid
@@ -65,28 +68,28 @@ api.interceptors.response.use(
                     // Optionally redirect to login page
                     // window.location.href = '/login';
                     break;
-                
+
                 case 403:
                     // Forbidden - user doesn't have permission
                     errorToast('You do not have permission to perform this action.');
                     break;
-                
+
                 case 404:
                     // Not found
                     errorToast('Requested resource not found.');
                     break;
-                
+
                 case 422:
                     // Validation error
                     const validationMessage = data?.message || data?.error || 'Validation failed. Please check your input.';
                     errorToast(validationMessage);
                     break;
-                
+
                 case 429:
                     // Too many requests
                     errorToast('Too many requests. Please try again later.');
                     break;
-                
+
                 case 500:
                 case 502:
                 case 503:
@@ -94,7 +97,7 @@ api.interceptors.response.use(
                     // Server errors
                     errorToast('Server error. Please try again later.');
                     break;
-                
+
                 default:
                     // Other errors
                     const errorMessage = data?.message || data?.error || `Request failed with status ${status}`;
@@ -116,7 +119,7 @@ api.interceptors.response.use(
             } else {
                 errorToast('Network error. Please check your internet connection.');
             }
-            
+
             return Promise.reject({
                 ...error,
                 message: 'Network error. Please check your internet connection.',

@@ -40,6 +40,7 @@ body {
   --tech-item-hover-bg: rgba(255, 107, 53, 0.1);
   --tech-icon-bg: rgba(255, 107, 53, 0.1);
   --tech-icon-hover-bg: rgba(255, 107, 53, 0.2);
+  --skeleton-background: #f0f0f0;
 }
 
 body {
@@ -53,4 +54,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
   line-height: 1.6;
+}
+
+.skeleton {
+  background-color: var(--skeleton-background);
+  animation: pulse 1.5s infinite; 
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }          
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './HeroSlider.scss';
+import WeatherCard from '../../../components/weatherCard';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -48,25 +49,25 @@ const HeroSlider = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const startAutoSlide = () => {
-  //     autoSlideIntervalRef.current = setInterval(() => {
-  //       nextSlide();
-  //     }, 5000);
-  //   };
+  useEffect(() => {
+    const startAutoSlide = () => {
+      autoSlideIntervalRef.current = setInterval(() => {
+        nextSlide();
+      }, 5000);
+    };
 
-  //   const stopAutoSlide = () => {
-  //     if (autoSlideIntervalRef.current) {
-  //       clearInterval(autoSlideIntervalRef.current);
-  //     }
-  //   };
+    const stopAutoSlide = () => {
+      if (autoSlideIntervalRef.current) {
+        clearInterval(autoSlideIntervalRef.current);
+      }
+    };
 
-  //   startAutoSlide();
+    startAutoSlide();
 
-  //   return () => {
-  //     stopAutoSlide();
-  //   };
-  // }, [currentSlide]);
+    return () => {
+      stopAutoSlide();
+    };
+  }, [currentSlide]);
 
   const goToSlide = (index) => {
     if (index === currentSlide) return;
@@ -132,6 +133,10 @@ const HeroSlider = () => {
         <button className="slider-nav next" onClick={nextSlide} aria-label="Next slide">
           <span>›</span>
         </button>
+
+        <div className='weather-container'>
+          <WeatherCard />
+        </div>
 
         {/* Dots Indicator */}
         <div className="slider-dots">
