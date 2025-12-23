@@ -4,7 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Flip } from "react-toastify";
 import { Provider } from 'react-redux';
 import store from './app/store';
 
@@ -14,12 +14,20 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <ToastContainer
+          closeButton={true}
+          icon={false}
+          position="bottom-right"
           autoClose={3000}
-          position="bottom-center"
-          newestOnTop={true}
-          theme="light"
-          hideProgressBar={true}
-          rtl={false} />
+          hideProgressBar
+          newestOnTop
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition={Flip}
+        />
         <App />
       </BrowserRouter>
     </Provider>

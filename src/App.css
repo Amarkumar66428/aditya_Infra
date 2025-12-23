@@ -4,13 +4,18 @@
 }
 
 .Toastify__toast {
-  height: 100% !important;
+  min-height: 50px !important;
   border-radius: none !important;
   max-height: none !important;
 }
 
 .Toastify__toast-body {
   padding: 1px !important;
+  margin: 0 !important;
+}
+
+.error-toast{
+  background-color: #fe0000 !important;
 }
 
 .loader {

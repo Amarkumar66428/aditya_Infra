@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    min-height: 100px;
     width: 320px;
     border-radius: 20px;
     overflow: hidden;
@@ -110,5 +111,15 @@
         height: 2px;
         background-color: lightslategray;
         border-radius: 1px;
+    }
+
+    .error-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 25px;
+        color: #000;
+        font-size: 9pt;
+        font-weight: 600;
     }
 }

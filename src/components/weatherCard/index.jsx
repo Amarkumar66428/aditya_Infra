@@ -67,6 +67,10 @@ const WeatherCard = () => {
                             <Skeleton style={{ height: "20px", width: "100%", borderRadius: "20px", marginBottom: "10px" }} />
                         </div>
                     </>
+                ) : !weather?.data ? (
+                    <div className="error-message">
+                        <p>{weather?.error?.message || "No weather data available"}</p>
+                    </div>
                 ) : (
                     <>
                         <div className="weather-info">
