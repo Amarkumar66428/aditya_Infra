@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './header.scss';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger for this module (safe to call multiple times)
+gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,24 +62,44 @@ const Header = () => {
         }
       }
     }
+
+    const showAnim = gsap.from('.main-tool-bar', {
+      yPercent: -140,
+      paused: true,
+      duration: 0.2
+    }).progress(1);
+
+    ScrollTrigger.create({
+      start: "top top",
+      end: "max",
+      // markers: true,
+      onUpdate: (self) => {
+        self.direction === -1 ? showAnim.play() : showAnim.reverse()
+      }
+    });
+
   }, []);
 
   const handleDropdownToggle = (menu) => {
-    // On mobile, toggle the dropdown
-    if (window.innerWidth <= 968) {
-      setActiveDropdown(activeDropdown === menu ? null : menu);
-    } else {
-      // On desktop, just set it (handled by hover)
-      setActiveDropdown(menu);
-    }
+    setActiveDropdown((prev) => (prev === menu ? null : menu));
   };
 
-  const handleMouseLeave = () => {
-    // Only close on desktop
-    if (window.innerWidth > 968) {
-      setActiveDropdown(null);
-    }
-  };
+  // Close dropdowns when clicking outside on desktop
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (window.innerWidth <= 968) return;
+
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const menuItems = [
     {
@@ -131,7 +155,7 @@ const Header = () => {
   ];
 
   return (
-    <header ref={headerRef} className="main-header">
+    <header ref={headerRef} className="main-header main-tool-bar">
       <div className="header-container">
         <div className="logo-container">
           <figure className="logo-image">
@@ -144,8 +168,6 @@ const Header = () => {
             <div
               key={index}
               className={`nav-item ${activeDropdown === item.label ? 'dropdown-open' : ''}`}
-              onMouseEnter={() => item.hasDropdown && window.innerWidth > 968 && handleDropdownToggle(item.label)}
-              onMouseLeave={handleMouseLeave}
             >
               {item.hasDropdown ? (
                 <>

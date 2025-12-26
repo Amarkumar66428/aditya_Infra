@@ -1,13 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
+import React, { useRef, useState, useEffect } from 'react';
 import './HeroSlider.scss';
 import WeatherCard from '../../../components/weatherCard';
+import work1 from '../../../assets/hero/work1.webp';
+import work2 from '../../../assets/hero/work2.webp';
+import work3 from '../../../assets/hero/work3.webp';
+import work4 from '../../../assets/hero/work4.webp';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
-  const slidesRef = useRef([]);
-  const autoSlideIntervalRef = useRef(null);
+  const slidesContainerRef = useRef(null);
 
   const slides = [
     {
@@ -30,70 +32,14 @@ const HeroSlider = () => {
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1541976590-ef5298c55b13?w=1920&q=80',
+      image: work3,
       title: 'Engineering Excellence Across the Globe',
       subtitle: 'Delivering Projects with Precision'
     }
   ];
 
-  useEffect(() => {
-    // Initialize slider animation
-    if (slidesRef.current.length > 0) {
-      gsap.set(slidesRef.current, { opacity: 0, scale: 1.1 });
-      gsap.to(slidesRef.current[currentSlide], {
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        ease: 'power2.out'
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    const startAutoSlide = () => {
-      autoSlideIntervalRef.current = setInterval(() => {
-        nextSlide();
-      }, 5000);
-    };
-
-    const stopAutoSlide = () => {
-      if (autoSlideIntervalRef.current) {
-        clearInterval(autoSlideIntervalRef.current);
-      }
-    };
-
-    startAutoSlide();
-
-    return () => {
-      stopAutoSlide();
-    };
-  }, [currentSlide]);
-
   const goToSlide = (index) => {
     if (index === currentSlide) return;
-
-    const prevSlide = slidesRef.current[currentSlide];
-    const nextSlide = slidesRef.current[index];
-
-    gsap.to(prevSlide, {
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.8,
-      ease: 'power2.in',
-      onComplete: () => {
-        gsap.fromTo(
-          nextSlide,
-          { opacity: 0, scale: 1.05 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: 'power2.out'
-          }
-        );
-      }
-    });
-
     setCurrentSlide(index);
   };
 
@@ -107,24 +53,42 @@ const HeroSlider = () => {
     goToSlide(prev);
   };
 
+  // Update transform on slide change
+  useEffect(() => {
+    if (slidesContainerRef.current) {
+      const translateX = -currentSlide * 100;
+      slidesContainerRef.current.style.transform = `translateX(${translateX}%)`;
+    }
+  }, [currentSlide]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
   return (
     <section ref={sliderRef} className="hero-slider">
       <div className="slider-container">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            ref={(el) => (slidesRef.current[index] = el)}
-            className={`slide ${index === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
-          >
-            <div className="slide-overlay"></div>
-            <div className="slide-content">
-              <h1 className="slide-title">{slide.title}</h1>
-              <p className="slide-subtitle">{slide.subtitle}</p>
-              <button className="cta-button">Explore Our Projects</button>
-            </div>
-          </div>
-        ))}
+        <div className="slider-wrapper">
+          <ul ref={slidesContainerRef} className="slider-slides">
+            {slides.map((slide, index) => (
+              <li
+                key={slide.id}
+                className={`slide ${index === currentSlide ? 'active' : ''}`}
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="slide-overlay"></div>
+                <div className="slide-content">
+                  <h1 className="slide-title">{slide.title}</h1>
+                  <p className="slide-subtitle">{slide.subtitle}</p>
+                  <button className="cta-button">Explore Our Projects</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Navigation Buttons */}
         <button className="slider-nav prev" onClick={prevSlide} aria-label="Previous slide">
