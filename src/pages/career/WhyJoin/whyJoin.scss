@@ -1,0 +1,371 @@
+.career-why-join-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  background: linear-gradient(180deg,
+      rgba(255, 107, 53, 0.05) 0%,
+      rgba(255, 140, 66, 0.05) 50%,
+      #ffffff 50%,
+      #ffffff 100%);
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding-top: 80px;
+  }
+
+  .page-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+
+    @media (max-width: 768px) {
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        animation: slideInUp 0.8s ease 0.2s both;
+
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 2rem;
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.95;
+        animation: slideInUp 0.8s ease 0.4s both;
+
+        @media (max-width: 768px) {
+          font-size: 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+
+    @media (max-width: 768px) {
+      padding: 60px 20px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 15px;
+    }
+  }
+
+  .intro-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 0.8s ease;
+
+    @media (max-width: 768px) {
+      margin-bottom: 60px;
+    }
+
+    .section-content {
+      background: white;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+      @media (max-width: 768px) {
+        padding: 40px 30px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 30px 20px;
+      }
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 16px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    .section-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-gray);
+      margin-top: 20px;
+
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .reasons-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+
+    @media (max-width: 768px) {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 20px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.75rem;
+        margin-bottom: 30px;
+      }
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    .reason-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease both;
+
+      &:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: 0.7s;
+      }
+
+      &:nth-child(6) {
+        animation-delay: 0.8s;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
+      }
+
+      @media (max-width: 480px) {
+        padding: 30px 20px;
+      }
+
+      .reason-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .reason-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+
+        @media (max-width: 480px) {
+          font-size: 1.25rem;
+        }
+      }
+
+      .reason-description {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-gray);
+
+        @media (max-width: 480px) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .cta-section {
+    animation: fadeInUp 0.8s ease 0.3s both;
+
+    .cta-content {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+      color: white;
+      padding: 60px 50px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.2);
+
+      @media (max-width: 768px) {
+        padding: 50px 40px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 40px 30px;
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: white;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 1.75rem;
+        }
+      }
+
+      .cta-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        opacity: 0.95;
+
+        @media (max-width: 480px) {
+          font-size: 1rem;
+        }
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: white;
+        color: var(--primary-color);
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 480px) {
+          padding: 14px 30px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-why-join-page * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

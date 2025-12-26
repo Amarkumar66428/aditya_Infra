@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './header.scss';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 // Register ScrollTrigger for this module (safe to call multiple times)
 gsap.registerPlugin(ScrollTrigger);
@@ -103,6 +104,11 @@ const Header = () => {
 
   const menuItems = [
     {
+      label: 'Home',
+      hasDropdown: false,
+      link: '/'
+    },
+    {
       label: 'About Us',
       hasDropdown: true,
       dropdownItems: [
@@ -110,16 +116,6 @@ const Header = () => {
         { label: 'Our History', link: '/about/history' },
         { label: 'Leadership Team', link: '/about/leadership' },
         { label: 'Our Values', link: '/about/values' }
-      ]
-    },
-    {
-      label: 'Press',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'News & Updates', link: '/press/news' },
-        { label: 'Press Releases', link: '/press/releases' },
-        { label: 'Media Kit', link: '/press/media-kit' },
-        { label: 'Awards & Recognition', link: '/press/awards' }
       ]
     },
     {
@@ -194,9 +190,9 @@ const Header = () => {
                   )}
                 </>
               ) : (
-                <a href={item.link} className="nav-link">
+                <Link to={item.link} className={`nav-link ${window.location.pathname === item.link ? 'open' : ''}`} onClick={() => setIsMenuOpen(false)}>
                   {item.label}
-                </a>
+                </Link>
               )}
             </div>
           ))}

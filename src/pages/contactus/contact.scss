@@ -1,0 +1,510 @@
+.contact-us-page {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding-top: 100px;
+    background: linear-gradient(180deg,
+            rgba(92, 180, 171, 0.08) 0%,
+            rgba(0, 150, 136, 0.08) 50%,
+            #ffffff 50%,
+            #ffffff 100%);
+    overflow-x: hidden;
+
+    @media (max-width: 768px) {
+        padding: 40px 15px;
+        background: linear-gradient(180deg,
+                rgba(0, 150, 136, 0.08) 0%,
+                rgba(0, 150, 136, 0.08) 40%,
+                #ffffff 40%,
+                #ffffff 100%);
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform, opacity;
+
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+            border-radius: 8px;
+        }
+    }
+
+    // Left Section - Form
+    .contact-form-section {
+        padding: 60px 50px;
+        background: #ffffff;
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: 968px) {
+            padding: 40px 30px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 30px 20px;
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 1.75rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @media (max-width: 480px) {
+                gap: 15px;
+            }
+        }
+
+        .form-group {
+            position: relative;
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+            &:nth-child(1) {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.6s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 0.7s;
+            }
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+            opacity: 1;
+
+            &.focused {
+                color: var(--primary-color);
+                transform: translateY(-2px);
+            }
+
+            .required {
+                color: var(--primary-color);
+                margin-left: 4px;
+            }
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #e0e0e0;
+            background: transparent;
+            padding: 6px 0;
+            font-size: 1rem;
+            color: #1a1a1a;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            resize: none;
+            will-change: border-color;
+
+            &::placeholder {
+                color: #999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &:focus {
+                outline: none;
+                border-bottom-color: var(--primary-color);
+
+                &::placeholder {
+                    opacity: 1;
+                }
+            }
+
+            &:not(:placeholder-shown) {
+                border-bottom-color: var(--primary-color);
+            }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 1000px white inset;
+                -webkit-text-fill-color: #1a1a1a;
+                transition: background-color 5000s ease-in-out 0s;
+            }
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            line-height: 1.2;
+        }
+
+        .input-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .form-input:focus~.input-underline,
+        .form-textarea:focus~.input-underline {
+            width: 100%;
+        }
+
+        .submit-button {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+
+            &:hover:not(:disabled) {
+                transform: translateY(-2px);
+
+                &::before {
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+
+            &:active:not(:disabled) {
+                transform: translateY(0);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            @media (max-width: 480px) {
+                max-width: 100%;
+                padding: 14px 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .button-loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+    }
+
+    // Right Section - Contact Info
+    .contact-info-section {
+        padding: 60px 50px;
+        background: #262626;
+        background: linear-gradient(90deg, rgba(38, 38, 38, 1) 0%, rgba(55, 55, 61, 1) 50%, rgba(69, 69, 69, 1) 100%);
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @media (max-width: 968px) {
+            padding: 40px 30px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 30px 20px;
+        }
+
+        .contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-blend-mode: color-dodge;
+            background-image: url("https://assets.codepen.io/16327/noise.png");
+        }
+
+        .info-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 1.75rem;
+            }
+        }
+
+        .info-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+
+            @media (max-width: 480px) {
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+
+            @media (max-width: 480px) {
+                gap: 25px;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+            &:nth-child(1) {
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.6s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.7s;
+            }
+
+            @media (max-width: 480px) {
+                gap: 15px;
+            }
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, background;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                color: #ffffff;
+                transition: transform 0.3s ease;
+            }
+
+            @media (max-width: 480px) {
+                width: 45px;
+                height: 45px;
+                min-width: 45px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--primary-color);
+            transform: scale(1.1) rotate(5deg);
+
+            svg {
+                transform: scale(1.1);
+            }
+        }
+
+        .contact-text {
+            flex: 1;
+
+            p {
+                font-size: 1rem;
+                line-height: 1.8;
+                color: rgba(255, 255, 255, 0.95);
+                margin: 0;
+                transition: color 0.3s ease;
+
+                &:first-child {
+                    font-weight: 600;
+                    color: #ffffff;
+                    margin-bottom: 4px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+// Performance optimizations
+@media (prefers-reduced-motion: reduce) {
+    .contact-us-page * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+// Loading state optimization
+.contact-us-page {
+    contain: layout style paint;
+}
+
+.form-group,
+.contact-item {
+    contain: layout style;
+}
