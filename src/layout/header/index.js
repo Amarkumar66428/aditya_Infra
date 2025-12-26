@@ -114,8 +114,6 @@ const Header = () => {
       dropdownItems: [
         { label: 'Company Overview', link: '/about/overview' },
         { label: 'Our History', link: '/about/history' },
-        { label: 'Leadership Team', link: '/about/leadership' },
-        { label: 'Our Values', link: '/about/values' }
       ]
     },
     {
@@ -125,7 +123,6 @@ const Header = () => {
         { label: 'Current Projects', link: '/projects/current' },
         { label: 'Completed Projects', link: '/projects/completed' },
         { label: 'Upcoming Projects', link: '/projects/upcoming' },
-        { label: 'Project Portfolio', link: '/projects/portfolio' }
       ]
     },
     {
@@ -177,14 +174,17 @@ const Header = () => {
                   {activeDropdown === item.label && (
                     <div className="dropdown-menu">
                       {item.dropdownItems.map((dropdownItem, idx) => (
-                        <a
+                        <Link
                           key={idx}
-                          href={dropdownItem.link}
+                          to={dropdownItem.link}
                           className="dropdown-item"
-                          onClick={() => setIsMenuOpen(false)}
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setActiveDropdown(null);
+                          }}
                         >
                           {dropdownItem.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
