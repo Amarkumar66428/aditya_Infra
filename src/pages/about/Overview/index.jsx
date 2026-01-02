@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './overview.scss';
+import SecondaryHero from '../../../components/secondaryHero';
 
 const Overview = () => {
   useEffect(() => {
@@ -9,14 +10,8 @@ const Overview = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Company Overview" subtitle="Building Excellence, Creating Tomorrow" />
       <div className="about-overview-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Company Overview</h1>
-            <p className="hero-subtitle">Building Excellence, Creating Tomorrow</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="intro-section">
             <div className="section-content">

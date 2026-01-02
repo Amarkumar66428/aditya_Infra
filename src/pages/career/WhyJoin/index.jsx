@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './whyJoin.scss';
+import SecondaryHero from '../../../components/secondaryHero';
 
 const WhyJoin = () => {
   useEffect(() => {
@@ -48,14 +49,8 @@ const WhyJoin = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Why Join Us" subtitle="Build Your Career with Industry Leaders" />
       <div className="career-why-join-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Why Join Us</h1>
-            <p className="hero-subtitle">Build Your Career with Industry Leaders</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="intro-section">
             <div className="section-content">

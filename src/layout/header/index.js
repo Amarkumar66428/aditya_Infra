@@ -28,41 +28,6 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Ensure nav is visible immediately
-    if (navRef.current) {
-      // Set initial visible state - ensure nav is always visible
-      gsap.set(navRef.current, {
-        opacity: 1,
-        visibility: 'visible',
-        display: 'flex'
-      });
-
-      // Set nav items to visible
-      const navItems = navRef.current.children;
-      if (navItems && navItems.length > 0) {
-        gsap.set(navItems, {
-          opacity: 1,
-          y: 0,
-          visibility: 'visible',
-          display: 'block'
-        });
-
-        // Optional: subtle fade-in animation on desktop only
-        if (window.innerWidth > 968) {
-          gsap.fromTo(navItems,
-            { opacity: 0.5, y: -10 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.5,
-              stagger: 0.05,
-              delay: 0.2,
-              ease: 'power1.out'
-            }
-          );
-        }
-      }
-    }
 
     const showAnim = gsap.from('.main-tool-bar', {
       yPercent: -140,

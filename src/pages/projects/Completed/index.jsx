@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './completed.scss';
-
+import SecondaryHero from '../../../components/secondaryHero';
 const Completed = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,14 +60,8 @@ const Completed = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Completed Projects" subtitle="Our Legacy of Excellence" />
       <div className="projects-completed-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Completed Projects</h1>
-            <p className="hero-subtitle">Our Legacy of Excellence</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="projects-section">
             <div className="projects-grid">

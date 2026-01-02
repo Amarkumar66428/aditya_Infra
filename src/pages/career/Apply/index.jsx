@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Layout from '../../../layout';
 import { CircularProgress } from '@mui/material';
 import './apply.scss';
+import SecondaryHero from '../../../components/secondaryHero';
 
 const Apply = () => {
   useEffect(() => {
@@ -72,14 +73,8 @@ const Apply = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Apply Now" subtitle="Start Your Career Journey with Us" />
       <div className="career-apply-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Apply Now</h1>
-            <p className="hero-subtitle">Start Your Career Journey with Us</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="apply-section">
             <div className="apply-form-container">

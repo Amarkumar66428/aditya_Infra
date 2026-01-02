@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './benefits.scss';
+import SecondaryHero from '../../../components/secondaryHero';
 
 const Benefits = () => {
   useEffect(() => {
@@ -60,14 +61,8 @@ const Benefits = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Employee Benefits" subtitle="Taking Care of Our Team" />
       <div className="career-benefits-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Employee Benefits</h1>
-            <p className="hero-subtitle">Taking Care of Our Team</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="intro-section">
             <div className="section-content">

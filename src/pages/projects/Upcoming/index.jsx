@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './upcoming.scss';
-
+import SecondaryHero from '../../../components/secondaryHero';
 const Upcoming = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,14 +44,8 @@ const Upcoming = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Upcoming Projects" subtitle="Shaping Tomorrow's Infrastructure" />
       <div className="projects-upcoming-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Upcoming Projects</h1>
-            <p className="hero-subtitle">Shaping Tomorrow's Infrastructure</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="projects-section">
             <div className="projects-grid">

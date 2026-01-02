@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './history.scss';
+import SecondaryHero from '../../../components/secondaryHero';
 
 const History = () => {
   useEffect(() => {
@@ -48,22 +49,16 @@ const History = () => {
 
   return (
     <Layout>
+      <SecondaryHero title="Our History" subtitle="A Journey of Growth and Excellence" />
       <div className="about-history-page">
-        <div className="page-hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Our History</h1>
-            <p className="hero-subtitle">A Journey of Growth and Excellence</p>
-          </div>
-        </div>
-
         <div className="content-container">
           <section className="intro-section">
             <div className="section-content">
               <h2 className="section-title">Our Journey</h2>
               <p className="section-text">
-                Since our inception, Aditya Infra and Construction has been on a remarkable journey 
-                of growth, innovation, and achievement. From humble beginnings to becoming a trusted 
-                name in the construction industry, our history is marked by dedication, hard work, and 
+                Since our inception, Aditya Infra and Construction has been on a remarkable journey
+                of growth, innovation, and achievement. From humble beginnings to becoming a trusted
+                name in the construction industry, our history is marked by dedication, hard work, and
                 an unwavering commitment to excellence.
               </p>
             </div>
