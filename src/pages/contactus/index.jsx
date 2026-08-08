@@ -220,8 +220,8 @@ const ContactUs = () => {
                                     </div>
                                     <div className="contact-text">
                                         <p>ADITYA INFRA AND CONSTRUCTION</p>
-                                        <p>Level 1, Business Park, Dubai South</p>
-                                        <p>Dubai, United Arab Emirates</p>
+                                        <p>Dashmesh Nagar, Ayali Khurd, Ludhiana</p>
+                                        <p>Punjab, India</p>
                                     </div>
                                 </div>
 
@@ -232,7 +232,7 @@ const ContactUs = () => {
                                         </svg>
                                     </div>
                                     <div className="contact-text">
-                                        <p>+971 4 XXX XXXX</p>
+                                        <p>+91 78149 93487</p>
                                     </div>
                                 </div>
 

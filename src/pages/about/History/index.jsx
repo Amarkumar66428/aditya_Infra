@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './history.scss';
 import SecondaryHero from '../../../components/secondaryHero';
+import { FcGlobe } from "react-icons/fc";
+import { FcMultipleDevices } from "react-icons/fc";
+import { FcHome } from "react-icons/fc";
 
 const History = () => {
   useEffect(() => {
@@ -19,13 +22,13 @@ const History = () => {
       year: '2013',
       title: 'First Major Project',
       description: 'Successfully completed our first major infrastructure project, establishing our reputation for quality and reliability.',
-      icon: '🏆'
+      icon: <FcHome />
     },
     {
       year: '2016',
       title: 'Regional Expansion',
       description: 'Expanded operations across the region, taking on larger and more complex projects while maintaining our commitment to excellence.',
-      icon: '🌍'
+      icon: <FcGlobe />
     },
     {
       year: '2019',
@@ -37,7 +40,7 @@ const History = () => {
       year: '2022',
       title: 'Technology Integration',
       description: 'Embraced cutting-edge construction technology, including BIM, AI, and IoT solutions to enhance project efficiency.',
-      icon: '💻'
+      icon: <FcMultipleDevices />
     },
     {
       year: '2024',

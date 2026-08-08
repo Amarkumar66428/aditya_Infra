@@ -25,8 +25,10 @@ const WeatherCard = () => {
             (position) => {
                 const { latitude, longitude } = position.coords;
 
+                const timeZone = !latitude || !longitude ? Intl.DateTimeFormat().resolvedOptions() : null
+
                 // Pass current location coordinates to the API instead of static data
-                weatherService.getWeather('', latitude, longitude)
+                weatherService.getWeather('', latitude, longitude, timeZone)
                     .then((data) => {
                         setWeather({ data: data.data, loading: false, error: null });
                     })

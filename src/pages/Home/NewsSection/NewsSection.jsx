@@ -2,6 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './NewsSection.scss';
+import work1 from '../../../assets/hero/work1.png';
+import work2 from '../../../assets/hero/work2.webp';
+import work3 from '../../../assets/hero/work3.webp';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +52,7 @@ const NewsSection = () => {
       date: '04 FEB',
       title: 'ADITYA INFRA Won the "Infrastructure Contractor of the Year" Award and "Offsite Construction Project of the Year"',
       snippet: 'Recently, The Big Project ME (BPME) Awards were held in Dubai. This year, Civil & Infrastructure Branch has been recognized for outstanding achievements in infrastructure development and innovative construction methodologies.',
-      image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80',
+      image: work1,
       link: '/news/award-2025'
     },
     {
@@ -56,7 +60,7 @@ const NewsSection = () => {
       date: '14 JAN',
       title: 'ADITYA INFRA Civil & Infrastructure Branch Awarded R1013/2F Improvement of Al Shindagha Corridor – Access to Dubai Island from Bur Dubai Side Project',
       snippet: 'ADITYA INFRA has recently received the Letter of Acceptance from the Dubai Roads and Transport Authority for this major infrastructure project, further strengthening our presence in the region.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      image: work2,
       link: '/news/dubai-project'
     },
     {
@@ -64,7 +68,7 @@ const NewsSection = () => {
       date: '14 OCT',
       title: 'ADITYA INFRA Awarded Oceano by the Luxe Developers at Al Marjan Island in Ras Al Khaimah',
       snippet: 'Recently, ADITYA INFRA officially signed an agreement with The Luxe Developers FZ-LLC for the Oceano project, a prestigious residential development on the beautiful Al Marjan Island.',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+      image: work3,
       link: '/news/oceano-project'
     }
   ];

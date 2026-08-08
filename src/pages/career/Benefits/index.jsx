@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import Layout from '../../../layout';
 import './benefits.scss';
 import SecondaryHero from '../../../components/secondaryHero';
+import { MdHealthAndSafety } from "react-icons/md";
+import { FcMoneyTransfer } from "react-icons/fc";
+import { FcReadingEbook } from "react-icons/fc";
+import { FcAlarmClock } from "react-icons/fc";
+import { FcBullish } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
 
 const Benefits = () => {
   useEffect(() => {
@@ -13,13 +19,13 @@ const Benefits = () => {
       id: 1,
       title: 'Health Insurance',
       description: 'Comprehensive health insurance coverage for you and your family.',
-      icon: '🏥'
+      icon: <MdHealthAndSafety />
     },
     {
       id: 2,
       title: 'Retirement Plans',
       description: 'Competitive retirement savings plans to secure your future.',
-      icon: '💰'
+      icon: <FcMoneyTransfer />
     },
     {
       id: 3,
@@ -31,25 +37,25 @@ const Benefits = () => {
       id: 4,
       title: 'Professional Development',
       description: 'Training programs, certifications, and continuous learning opportunities.',
-      icon: '📚'
+      icon: <FcReadingEbook />
     },
     {
       id: 5,
       title: 'Flexible Work Options',
       description: 'Flexible working hours and remote work options where applicable.',
-      icon: '⏰'
+      icon: <FcAlarmClock />
     },
     {
       id: 6,
       title: 'Performance Bonuses',
       description: 'Recognition and rewards for outstanding performance and achievements.',
-      icon: '🎯'
+      icon: <FcBullish />
     },
     {
       id: 7,
       title: 'Employee Wellness',
       description: 'Wellness programs, gym memberships, and health initiatives.',
-      icon: '💪'
+      icon: <FcBusinessman />
     },
     {
       id: 8,

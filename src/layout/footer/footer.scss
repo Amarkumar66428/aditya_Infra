@@ -53,7 +53,19 @@
               width: 35px;
               height: 30px;
               background: white;
-              clip-path: polygon(0% 100%, 20% 60%, 40% 60%, 40% 100%, 60% 100%, 60% 40%, 80% 40%, 80% 100%, 100% 100%, 100% 0%, 0% 0%);
+              clip-path: polygon(
+                0% 100%,
+                20% 60%,
+                40% 60%,
+                40% 100%,
+                60% 100%,
+                60% 40%,
+                80% 40%,
+                80% 100%,
+                100% 100%,
+                100% 0%,
+                0% 0%
+              );
               z-index: 1;
             }
           }
@@ -95,7 +107,7 @@
           padding-bottom: 0.75rem;
 
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -176,7 +188,7 @@
   }
 
   .footer:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     width: 100%;
@@ -194,5 +206,9 @@
 
   #center {
     visibility: hidden;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem 1rem;
   }
 }

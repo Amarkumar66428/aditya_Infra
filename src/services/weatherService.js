@@ -1,9 +1,9 @@
 import api from "../utils/axios";
 
 const weatherService = {
-    getWeather: async (city, lat, lon) => {
+    getWeather: async (city, lat, lon, timezone) => {
         const params = {
-            city, lat, lon, days: 5, units: 'metric'
+            city, lat, lon, days: 5, units: 'metric', timezone
         }
 
         const response = await api.get(`/weather`, { params });

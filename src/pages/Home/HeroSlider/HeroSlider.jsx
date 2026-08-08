@@ -1,10 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import './HeroSlider.scss';
-import WeatherCard from '../../../components/weatherCard';
-import work1 from '../../../assets/hero/work1.webp';
-import work2 from '../../../assets/hero/work2.webp';
 import work3 from '../../../assets/hero/work3.webp';
-import work4 from '../../../assets/hero/work4.webp';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -38,15 +34,15 @@ const HeroSlider = () => {
     }
   ];
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     if (index === currentSlide) return;
     setCurrentSlide(index);
-  };
+  },[currentSlide]);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     const next = (currentSlide + 1) % slides.length;
     goToSlide(next);
-  };
+  }, [currentSlide, goToSlide, slides.length]);
 
   const prevSlide = () => {
     const prev = (currentSlide - 1 + slides.length) % slides.length;
@@ -98,9 +94,9 @@ const HeroSlider = () => {
           <span>›</span>
         </button>
 
-        <div className='weather-container'>
+        {/* <div className='weather-container'>
           <WeatherCard />
-        </div>
+        </div> */}
 
         {/* Dots Indicator */}
         <div className="slider-dots">

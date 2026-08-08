@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { PiHammer } from "react-icons/pi";
+import { PiBulldozerLight } from "react-icons/pi";
+import { TbTrowel } from "react-icons/tb";
+import { LiaTapeSolid } from "react-icons/lia";
 
 const SecondaryHero = ({ title, subtitle }) => {
     const titleRef = useRef(null);
@@ -33,8 +37,42 @@ const SecondaryHero = ({ title, subtitle }) => {
                 text.removeAttribute("aria-hidden");
             }
         });
+
+        let FollowBox = "#Wrap .FollowBox";
+        gsap.set(FollowBox, {
+            xPercent: -50,
+            yPercent: -50,
+            scale: 0
+        });
+
+
+        window.addEventListener("mousemove", (e) => {
+
+            let mapper = gsap.utils.mapRange(0, 30, 0, 1);
+            let speed = Math.abs(e.movementX) + Math.abs(e.movementY)
+            let mappedSpeed = mapper(speed);
+            let clamp = gsap.utils.clamp(0, 1)
+
+
+            gsap.to(FollowBox, {
+                duration: 0.5,
+                overwrite: "auto",
+                x: e.clientX,
+                y: e.clientY,
+                stagger: 0.1,
+                ease: "none"
+            });
+
+            gsap.to(FollowBox, {
+                ease: 'none',
+                duration: 0.3,
+                overwrite: "auto",
+                stagger: 0.1,
+                scale: clamp(mappedSpeed),
+            });
+        });
     }, []);
-    
+
     return (
         <div className="page-hero">
             <div className="secondary-hero-img">
@@ -67,12 +105,18 @@ const SecondaryHero = ({ title, subtitle }) => {
                     />
                 </svg>
             </div>
+            <div id="Wrap">
+                <PiHammer className="FollowBox" alt="" />
+                <PiBulldozerLight className="FollowBox" alt="" />
+                <TbTrowel className="FollowBox" alt="" />
+                <LiaTapeSolid className="FollowBox" alt="" />
+            </div>
             <div className="hero-content">
                 <h1 ref={titleRef} className="hero-title">{title}</h1>
                 <p className="hero-subtitle">{subtitle}</p>
             </div>
         </div>
     )
-}
+};
 
 export default SecondaryHero
